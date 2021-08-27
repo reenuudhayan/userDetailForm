@@ -1,0 +1,41 @@
+graphql:
+  servlet:
+    mapping: /api/graphql/userdetailsform
+    enabled: true
+    corsEnabled: true
+
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+
+spring.datasource:
+  platform: postgres
+  driverClassName: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/postgres
+  username: postgres
+  password: reenu12
+
+logging:
+  file: C:/Users/senth/logs/auth.log
+  level:
+    root: INFO
+
+server:
+  port: 8082
+
+keycloak:
+  realm: master
+  url: http://localhost:8080/auth
+  client-id: resource service
+  scope: openid
+  credentials:
+    secret: 080db939-0653-48dc-8896-13f7a7e5df2e
+  grant-type: password
+  user-name: kayal
+  password: abcd
+  temp-password: abcd
+
+emailservice:
+  forgot-password-url: "http://51.89.153.172:8087/api/mail/reenu/forgotPassword"
+

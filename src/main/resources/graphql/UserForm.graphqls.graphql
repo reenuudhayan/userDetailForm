@@ -1,0 +1,36 @@
+type AccessToken{
+    token: String
+    expiresIn: String
+    refreshExpiresIn: String
+    refreshToken: String
+    tokenType: String
+    idToken: String
+    notBeforePolicy: String
+    sessionState: String
+    scope: String
+}
+type UserProfileResponse {
+    userId: String
+    firstName: String
+    lastName: String
+    email: String
+    mobileNumber: String
+    address: String
+    state: String
+    country: String
+    pinCode: String
+}
+type Mutation {
+    login(userName: String!, password: String!) : AccessToken!
+    createUser(user: User!) : String!
+    updateUserProfile(userProfile: UserProfile!): Boolean!
+    resetPassword(accessToken: String!, newPassword: String!) : Boolean!
+    refreshAccessToken(refreshToken: String!) : AccessToken!
+    forgotPassword(emailId: String!) : EmailResponse
+}
+
+type Query {
+    getUserId(accessToken: String!) : String!
+    getUserProfile(accessToken: String!) : UserProfileResponse!
+
+}
